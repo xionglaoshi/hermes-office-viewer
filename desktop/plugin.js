@@ -796,8 +796,8 @@ async function readTextSmart(path) {
   throw new Error('读不到文件内容')
 }
 
-/** 桌面桥单文件读取有 16 MB 上限（data URL 不能更大）。这类文件给两条退路。 */
-const DATA_URL_LIMIT_BYTES = 16 * 1024 * 1024
+/** 桌面桥单文件读取上限：默认 256 MB（设置 → 聊天 → 本地文件读取上限，最高 4 GB）。 */
+const DATA_URL_LIMIT_BYTES = 256 * 1024 * 1024
 
 function isTooLargeFailure(error) {
   return /too large|File preview failed/i.test(String(error?.message || error))
@@ -841,7 +841,7 @@ function PreviewFailure({ message, path, onRetry, onOpenExternal }) {
       }),
       !tooLarge ? jsx('pre', { className: 'max-h-28 max-w-[36rem] overflow-auto whitespace-pre-wrap rounded border border-(--ui-stroke-secondary) bg-(--ui-bg-secondary) p-2 text-[0.6875rem] text-(--ui-text-tertiary)', children: message }) : null,
       tooLarge
-        ? jsx('div', { className: 'max-w-[36rem] text-[0.6875rem] text-(--ui-text-tertiary)', children: '这是「设置 → 聊天 → 本地文件读取上限」的额度，最高可调到 4 GB。下面第一个按钮会把它调到 256 MB，然后重试。' })
+        ? jsx('div', { className: 'max-w-[36rem] text-[0.6875rem] text-(--ui-text-tertiary)', children: '这是「设置 → 聊天 → 预览 / 图片加载大小上限」的额度，最高可调到 4 GB。下面第一个按钮会把它调到 256 MB，然后重试。' })
         : null,
       jsxs('div', {
         className: 'flex items-center gap-2',
