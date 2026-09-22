@@ -1,0 +1,26 @@
+来源（纯 JS 渲染内核，免服务、不依赖 LibreOffice、不转 HTML）
+  内核    : @file-viewer/* 系列的预构建 bundle（补丁版）→ dist/office-viewer.js
+  资产    : dist/pptx.worker.js（与内核同源的 PPTX Worker）
+  上游    : @file-viewer/* 系列（renderer-word / renderer-spreadsheet / pptx / doc / renderer-ofd）
+  接口    : globalThis.CloudCLIOfficeViewer.render(bytes, host, { name })
+覆盖      : docx xlsx pptx doc xls wps et dps rtf ofd csv（按文件头签名分派）
+不接管    : md html pdf 图片 纯文本（走本插件原生路径）
+随包携带  : 旧 ppt(OLE2) 引擎在 assets/ppt/（ppt-native.wasm 1.5MB + ppt-font-cjk.otf 16MB）
+
+
+── 追加（2026-09-22）：旧版二进制演示引擎 @file-viewer/ppt ──────────────
+目录：ppt/
+文件：index.mjs(34K) worker.mjs(54K) frame-cache.mjs(22K)
+      ppt-native.wasm(1.5M) ppt-font-cjk.otf(16.4M) manifest.json LICENSE NOTICE
+来源：@file-viewer/ppt 的公开 npm 包 → assets/ppt/
+用途：仅在打开旧版二进制 .ppt/.dps 时按需加载（内核不支持 OLE2 演示容器）。
+⚠️ 许可：manifest.json 声明 proprietary-public-binary（**非开源**，Apache-2.0 不适用），
+   watermarkRequired=true、watermarkText="Flyfish Viewer"，水印由 WASM 绘制在最终帧上
+   （native-final-frame），无法用 CSS 去除。允许**未修改的集成捆绑**分发，须随附
+   LICENSE / NOTICE（已原样保留在本目录）。用户 2026-09-22 明确裁决接受该水印。
+校验：
+  index.mjs: sha256:fb04fa52004b75da…  35318 bytes
+  worker.mjs: sha256:f0c2ade3265387d8…  54951 bytes
+  frame-cache.mjs: sha256:34fc0e7a5f328d52…  22038 bytes
+  ppt-native.wasm: sha256:5e1313c50fee36c9…  1557729 bytes
+  ppt-font-cjk.otf: sha256:2c76254f6fc379fd…  16437364 bytes

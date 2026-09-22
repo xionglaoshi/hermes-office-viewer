@@ -1,0 +1,18 @@
+# macOS / 系统
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 本地运行时产物（不属于仓库内容）
+*.log
+tmp/

@@ -1,0 +1,5 @@
+name: office-viewer
+version: 1.0.0
+description: "文档预览：内置文件浏览器（类访达）+ 面板内就地预览。Office 系（docx/doc/xlsx/xls/pptx/ppt/csv/rtf/ofd/wps/et/dps）在渲染进程内用随插件携带的纯 JS 内核解析渲染，md 用 marked，PDF 用 pdf.js，图片内嵌，html 走沙箱，文本/脚本等宽只读。零常驻服务、不依赖 LibreOffice 或任何转换器、不改桌面端源码。"
+author: "xionglaoshi"
+kind: standalone
