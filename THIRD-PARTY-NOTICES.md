@@ -1,6 +1,6 @@
 # 第三方组件与许可 / Third-Party Notices
 
-本仓库**作者的代码**以 MIT 发布（见 `LICENSE`）。但仓库里随包携带了若干**第三方组件**，
+**MIT 只覆盖本仓库作者编写的代码**（`desktop/plugin.js`、`plugin.yaml`、`dashboard/`、`install.sh`、`scripts/`、文档）——见 `LICENSE`。但仓库里随包携带了若干**第三方组件**，
 它们**不适用** MIT，各自条款如下。分发本仓库或基于它做产品前，请阅读本节。
 
 ## 1. 预构建渲染内核（Office 系）
