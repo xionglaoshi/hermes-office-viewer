@@ -150,3 +150,9 @@ office-viewer/
 - [Hermes](https://hermes-agent.nousresearch.com/docs) —— 桌面端与插件 SDK
 - [pdf.js](https://github.com/mozilla/pdf.js) · [marked](https://github.com/markedjs/marked) · [@file-viewer](https://github.com/file-viewer)
 - 设计取舍受了 ChatGPT/Codex 桌面端文档渲染的启发（其 Office 内核为闭源 WASM，故本项目走纯 JS 路线）
+
+## 相关项目
+
+- [hermes-desktop-beautify](https://github.com/xionglaoshi/hermes-desktop-beautify) —— Hermes 桌面端美化插件；
+  它把本插件作为「文档预览」面板与「会话卡片点击 → 文档预览」的运行时依赖。
+- [meeting-recorder](https://github.com/xionglaoshi/meeting-recorder) —— 会议记录工具（录音→实时转写→纪要）。
